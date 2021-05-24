@@ -24,7 +24,7 @@ import numpy as np
 import pandas as pd
 
 #set bin size
-n = 4  
+n = 2  
 
 #set pixel range in spectra for intensity calculation
 start = 350
@@ -124,4 +124,4 @@ cid = fig.canvas.mpl_connect('button_press_event', onclick)
 binnedy = biny.reshape(int(sizeX/n)*int(sizeY/n)*1024)
 binnedy = np.round(binnedy,2)
 np.savetxt(data_folder + "binned {}x{} (Y-Axis).txt".format(n,n), binnedy, 
-           delimiter=",", fmt='%1.2f')
+            delimiter=",", fmt='%1.2f')
