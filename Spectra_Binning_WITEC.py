@@ -26,6 +26,10 @@ import pandas as pd
 #set bin size
 n = 4  
 
+#set pixel range in spectra for intensity calculation
+start = 350
+stop = 550
+
 #load data
 data_folder = 'C:\\DARBAI\\Binning test\\InGaN\\'
 header = pd.read_csv(data_folder + 'scan06 (Header).txt', header=None)
@@ -45,16 +49,16 @@ biny = ylines.reshape(int(rawy.shape[0]//n), n,
 
 
 #find max intensity in selected range of raw and binned data
-# intensity = np.amax(rawy[:,:,350:550], axis=2)
-# intensity_bin = np.amax(biny[:,:,350:550], axis=2)
+# intensity = np.amax(rawy[:,:,start:stop], axis=2)
+# intensity_bin = np.amax(biny[:,:,start:stop], axis=2)
 
 #find sum intensity in all range of raw and binned data
 # intensity = np.sum(rawy[:,:,:], axis=2)
 # intensity_bin = np.sum(biny[:,:,:], axis=2)
 
 #find sum intensity in selected range of raw and binned data
-intensity = np.sum(rawy[:,:,350:550], axis=2)
-intensity_bin = np.sum(biny[:,:,350:550], axis=2)
+intensity = np.sum(rawy[:,:,start:stop], axis=2)
+intensity_bin = np.sum(biny[:,:,start:stop], axis=2)
 
 #plot 2d maps
 fig, axs = plt.subplots(1,3, figsize=(17,6))
