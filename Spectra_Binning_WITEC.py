@@ -83,6 +83,7 @@ axs[2].set_title('File: {} \nScan:{}'.format(filename, graph))
 axs[2].set_xlabel('Wavelength (nm)')
 axs[2].set_ylabel('Intensity (a.u.)')
 axs[2].legend(loc='best')
+axs[2].set_xlim(xlines[0], xlines[900])
 
 lhor0 = axs[0].axhline(0,0)
 lver0 = axs[0].axvline(0,0)
